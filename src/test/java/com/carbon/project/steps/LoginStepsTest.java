@@ -23,8 +23,8 @@ public class LoginStepsTest extends BaseTest {
         driver = WebDriverFactory.createDriver();
         loginPage = new LoginPage(driver);
 
-        loginPage.load(getSalesforceCoreUrl());
-        loginPage.authenticate(getCoreUsername(), getCorePassword());
+        loginPage.load(getStoreFrontCommerceUrl());
+        loginPage.authenticate(getValidUsername(), getValidPassword());
         Thread.sleep(5000);
     }
 

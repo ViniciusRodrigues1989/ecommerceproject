@@ -25,32 +25,18 @@ public abstract class BaseTest {
         }
     }
 
-    public String getCoreUsername() {
-        var username = System.getProperty("coreUsername");
-        return username == null ? credentials.getProperty("coreUsername") : username;
+    public String getValidUsername() {
+        var username = System.getProperty("username");
+        return username == null ? credentials.getProperty("username") : username;
     }
 
-    public String getCorePassword() {
-        var password = System.getProperty("corePassword");
-        return password == null ? credentials.getProperty("corePassword") : password;
+    public String getValidPassword() {
+        var password = System.getProperty("password");
+        return password == null ? credentials.getProperty("password") : password;
     }
 
-    public String getSalesforceCoreUrl() {
-        return config.getProperty("salesforceCoreUrl");
-    }
-
-    public String getStoreFrontB2CUrl() {
-        return config.getProperty("storeFrontB2BUrl");
-    }
-
-    public String getStoreFrontUsername() {
-        var username = System.getProperty("buyerUsername");
-        return username == null ? credentials.getProperty("buyerUsername") : username;
-    }
-
-    public String getBuyerPassword() {
-        var password = System.getProperty("buyerPassword");
-        return password == null ? credentials.getProperty("buyerPassword") : password;
+    public String getStoreFrontCommerceUrl() {
+        return  config.getProperty("storeFrontCommerceUrl");
     }
 
     protected Integer getRandomNumber() {
