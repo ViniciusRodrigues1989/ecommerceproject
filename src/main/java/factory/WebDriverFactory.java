@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class WebDriverFactory {
     public static WebDriver createDriver() {
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/Users/viniciusrodrigues/ecommerceproject/chromedriver");
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
