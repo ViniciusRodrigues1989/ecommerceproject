@@ -39,7 +39,10 @@ public abstract class BaseTest {
         var password = System.getProperty("password");
         return password == null ? credentials.getProperty("password") : password;
     }
-
+    public String getInvalidPassword() {
+        var password = System.getProperty("invalidPassword");
+        return password == null ? credentials.getProperty("invalidPassword") : password;
+    }
     public String getStoreFrontCommerceUrl() {
         return  config.getProperty("storeFrontCommerceUrl");
     }
