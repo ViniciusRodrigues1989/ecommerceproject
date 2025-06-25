@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
@@ -31,7 +32,7 @@ public abstract class BasePage {
     public BasePage(WebDriver driver) {
         this.driver = driver;
         this.actions = new Actions(driver);
-        this.wait = new WebDriverWait(driver, 20);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
     public void searchAndClick(String searchText, By link, int maxLimitAttempts) {
