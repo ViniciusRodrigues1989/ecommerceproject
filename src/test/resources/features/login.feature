@@ -1,6 +1,12 @@
 Feature: Teste de Login
 
-  Scenario: Validar acesso ao commerce app
-    Given Estou logado na homepage do Salesforce Core
-    When Acesso o commerce app
-    Then Devo ser direcionado para o app correto
+  Scenario: Validar acesso usuario e senhas validas
+
+    Given Acesso a homepage do commerce
+    When Clico em login
+    Then Valido Login Sucesso
+
+  Scenario: Login usuário Bloqueado
+    Given Acesso a homepage do commerce com usuario bloqueado
+    When Clico em login
+    Then Devo ver a mensagem de erro user has been locked out

@@ -10,7 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 
-import static com.carbon.project.pages.Constants.CreateStore;
+import static com.carbon.project.pages.Constants.*;
 
 public class LoginStepsTest extends BaseTest {
     private WebDriver driver;
@@ -18,28 +18,43 @@ public class LoginStepsTest extends BaseTest {
     protected HomePage homePage;
     protected StorePage storePage;
 
-    @Given("Estou logado na homepage do Salesforce Core")
-    public void Estou_logado_na_homepage_do_Salesforce_Core() throws InterruptedException {
+    @Given("Acesso a homepage do commerce")
+    public void Acesso_a_homepage_do_commerce() {
         driver = WebDriverFactory.createDriver();
         loginPage = new LoginPage(driver);
 
         loginPage.load(getStoreFrontCommerceUrl());
-        loginPage.authenticate(getValidUsername(), getValidPassword());
-        Thread.sleep(5000);
+        loginPage.preencheCredenciais(getValidUsername(), getValidPassword());
+    }
+    @Given("Acesso a homepage do commerce com usuario bloqueado")
+    public void Acesso_a_homepage_do_commerce_com_usuario_bloqueado() {
+        driver = WebDriverFactory.createDriver();
+        loginPage = new LoginPage(driver);
+
+        loginPage.load(getStoreFrontCommerceUrl());
+        loginPage.preencheCredenciais(getLockedUsername(), getValidPassword());
     }
 
-    @When("Acesso o commerce app")
-    public void Acesso_commerce_app() {
+    @When("Clico em login")
+    public void Clico_em_login() {
         homePage = new HomePage(driver);
 
-        homePage.goToCommerceApp();
+        loginPage.clicaLoginBtn();
     }
 
-    @Then("Devo ser direcionado para o app correto")
-    public void Devo_ser_direcionado_para_o_app_correto() {
-        storePage = new StorePage(driver);
+    @Then("Valido Login Sucesso")
+    public void Valido_Login_Sucesso() {
+        homePage = new HomePage(driver);
 
-        storePage.validateStorePage(CreateStore);
+        homePage.validoLoginSucesso();
+        driver.quit();
+    }
+
+    @Then("Devo ver a mensagem de erro user has been locked out")
+    public void Valido_Usuário_Bloqueado() {
+        homePage = new HomePage(driver);
+
+        loginPage.validaMensagemLogin(USUARIO_BLOQUEADO_TEXT);
         driver.quit();
     }
 }

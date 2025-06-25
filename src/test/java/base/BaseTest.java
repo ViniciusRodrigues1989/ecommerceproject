@@ -30,6 +30,11 @@ public abstract class BaseTest {
         return username == null ? credentials.getProperty("username") : username;
     }
 
+    public String getLockedUsername() {
+        var username = System.getProperty("lockedUsername");
+        return username == null ? credentials.getProperty("lockedUsername") : username;
+    }
+
     public String getValidPassword() {
         var password = System.getProperty("password");
         return password == null ? credentials.getProperty("password") : password;
