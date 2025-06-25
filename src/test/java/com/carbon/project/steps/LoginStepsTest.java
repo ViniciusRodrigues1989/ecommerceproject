@@ -3,7 +3,6 @@ package steps;
 import base.BaseTest;
 import com.carbon.project.pages.HomePage;
 import com.carbon.project.pages.LoginPage;
-import com.carbon.project.pages.StorePage;
 import factory.WebDriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -16,7 +15,7 @@ public class LoginStepsTest extends BaseTest {
     private WebDriver driver;
     protected LoginPage loginPage;
     protected HomePage homePage;
-    protected StorePage storePage;
+
 
     @Given("Acesso a homepage do commerce")
     public void Acesso_a_homepage_do_commerce() {

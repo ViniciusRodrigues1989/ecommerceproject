@@ -14,12 +14,11 @@ public class HomePage extends SFDXPage {
 
     public void validoLoginSucesso () {
         WebElement btnMenu = driver.findElement(By.xpath(BURGERMENUBTN));
-
         if (btnMenu.isDisplayed()) {
             System.out.println("✅ O botão está visível.");
         } else {
             System.out.println("❌ O botão não está visível.");
         }
-        Assert.assertTrue("O botão do menu não está visível após o login.", btnMenu.isDisplayed());
+        Assert.assertTrue("O login não foi efetuado corretamente.", btnMenu.isDisplayed());
     }
 }

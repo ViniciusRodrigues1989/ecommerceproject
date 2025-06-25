@@ -33,6 +33,6 @@ public class LoginPage extends BasePage {
 
     public void validaMensagemLogin(String mensagem) {
         String mensagemAtual = waitUntilElementIsVisible(By.xpath(LOCKED_USER_TEXT)).getText();
-        Assert.assertEquals("A mensagem de erro exibida não é a esperada.", mensagem, mensagemAtual);
+        Assert.assertEquals("A mensagem de erro exibida não é a esperada." + mensagemAtual, mensagem, mensagemAtual);
     }
 }
