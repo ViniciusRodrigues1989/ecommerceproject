@@ -35,6 +35,11 @@ public abstract class BaseTest {
         return username == null ? credentials.getProperty("lockedUsername") : username;
     }
 
+    public String getEmptyUsername() {
+        var username = System.getProperty("emptyUsername");
+        return username == null ? credentials.getProperty("emptyUsername") : username;
+    }
+
     public String getValidPassword() {
         var password = System.getProperty("password");
         return password == null ? credentials.getProperty("password") : password;
@@ -43,6 +48,7 @@ public abstract class BaseTest {
         var password = System.getProperty("invalidPassword");
         return password == null ? credentials.getProperty("invalidPassword") : password;
     }
+
     public String getStoreFrontCommerceUrl() {
         return  config.getProperty("storeFrontCommerceUrl");
     }

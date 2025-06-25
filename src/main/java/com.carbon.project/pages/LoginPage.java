@@ -11,6 +11,7 @@ public class LoginPage extends BasePage {
     private static final String PASSWORD_TEXT_BOX = "//*[@id='password']";
     private static final String USERNAME_TEXT_BOX = "//*[@id='user-name']";
     private static final String WRONG_CREDENTIAL_TEXT = "//h3[@data-test='error' and text()='Epic sadface: Username and password do not match any user in this service']";
+    private static final String EMPTY_USERNAME_TEXT = "//h3[@data-test='error' and text()='Epic sadface: Username is required']";
 
 
     public LoginPage(WebDriver driver) {
@@ -45,6 +46,16 @@ public class LoginPage extends BasePage {
 
     public void validaMensagemWrongCredential(String mensagem) {
         String mensagemAtual = waitUntilElementIsVisible(By.xpath(WRONG_CREDENTIAL_TEXT)).getText();
+        if (mensagemAtual.equals(mensagem)) {
+            System.out.println("✅ A mensagem de validação está correta.");
+        } else {
+            System.out.println("❌ A validação de usuário e/ou senha errada está diferente do esperado");
+        }
+        Assert.assertEquals("A mensagem de erro exibida não é a esperada. " + mensagemAtual, mensagem, mensagemAtual);
+    }
+
+    public void validaUsuarioVazio(String mensagem) {
+        String mensagemAtual = waitUntilElementIsVisible(By.xpath(EMPTY_USERNAME_TEXT)).getText();
         if (mensagemAtual.equals(mensagem)) {
             System.out.println("✅ A mensagem de validação está correta.");
         } else {
