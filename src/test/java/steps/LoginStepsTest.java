@@ -1,15 +1,15 @@
 package steps;
 
 import base.BaseTest;
-import com.carbon.project.pages.HomePage;
-import com.carbon.project.pages.LoginPage;
+import pages.HomePage;
+import pages.LoginPage;
 import factory.WebDriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 
-import static com.carbon.project.pages.Constants.*;
+import static pages.Constants.*;
 
 public class LoginStepsTest extends BaseTest {
     private WebDriver driver;

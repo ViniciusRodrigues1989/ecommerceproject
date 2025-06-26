@@ -1,9 +1,8 @@
-package com.carbon.project.pages;
+package pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
     private static final String LOCKED_USER_TEXT = "//h3[@data-test='error' and text()='Epic sadface: Sorry, this user has been locked out.']";

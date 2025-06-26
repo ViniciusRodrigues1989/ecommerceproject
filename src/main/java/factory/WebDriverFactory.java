@@ -14,7 +14,7 @@ public class WebDriverFactory {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
-        options.setHeadless(false);
+        //options.setHeadless(false);
 
         WebDriver driver = new ChromeDriver(options);
         Dimension dimensions = new Dimension(1920,1080);

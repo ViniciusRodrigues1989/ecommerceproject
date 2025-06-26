@@ -1,4 +1,4 @@
-package com.carbon.project.pages;
+package pages;
 
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.*;
@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
@@ -31,7 +32,7 @@ public abstract class BasePage {
     public BasePage(WebDriver driver) {
         this.driver = driver;
         this.actions = new Actions(driver);
-        this.wait = new WebDriverWait(driver, 20);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
     public void searchAndClick(String searchText, By link, int maxLimitAttempts) {
@@ -133,8 +134,9 @@ public abstract class BasePage {
 
     protected void validateText(String xPathField, String expectedText) {
         var actualText = waitUntilElementIsVisible(By.xpath(xPathField)).getText();
-        Assertions.assertEquals(ASSERT_VALIDATION_ERROR_MESSAGE, expectedText, actualText);
+        Assertions.assertEquals(expectedText, actualText, ASSERT_VALIDATION_ERROR_MESSAGE);
     }
+
 
     protected void validateEmptyField(String xPathField) {
         var actualText = waitUntilElementIsVisible(By.xpath(xPathField)).getText();
