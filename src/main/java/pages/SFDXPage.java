@@ -78,7 +78,7 @@ public abstract class SFDXPage extends BasePage {
     private void closeTabs() {
         tryToRunTwice(() -> {
             try {
-                var tabs = new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(CLOSE_TAB_PATTERN_BUTTON)));
+                var tabs = new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(CLOSE_TAB_PATTERN_BUTTON)));
                 do {
                     if (!tabs.isEmpty()) {
                         Collections.reverse(tabs);

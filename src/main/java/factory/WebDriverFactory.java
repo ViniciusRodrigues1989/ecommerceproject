@@ -9,12 +9,16 @@ import java.util.concurrent.TimeUnit;
 
 public class WebDriverFactory {
     public static WebDriver createDriver() {
-        System.setProperty("webdriver.chrome.driver", "/Users/viniciusrodrigues/ecommerceproject/chromedriver");
+        String projectPath = System.getProperty("user.dir");
+        String chromeDriverPath = projectPath + "/chromedriver";
+
+        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
-        //options.setHeadless(false);
+        options.addArguments("--incognito");
+        options.setHeadless(false);
 
         WebDriver driver = new ChromeDriver(options);
         Dimension dimensions = new Dimension(1920,1080);
