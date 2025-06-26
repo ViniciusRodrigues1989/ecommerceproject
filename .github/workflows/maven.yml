@@ -21,7 +21,7 @@ jobs:
           java-version: '17'
           
       - name: Install Chrome (for WebDriver tests)
-        run: choco install googlechrome --no-progress -y
+        run: choco install googlechrome --no-progress -y --ignore-checksums
 
       - name: Install Dependencies
         run: mvn clean install
