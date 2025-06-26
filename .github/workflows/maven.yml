@@ -1,0 +1,30 @@
+name: CI Pipeline
+
+on:
+  schedule:
+    # Executa nos dias úteis às 9h, 12h, 15h e 18h
+    - cron: "0 9,12,15,18 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin' # Adoptium Temurin JDK
+          java-version: '17'
+          
+      - name: Install Chrome (for WebDriver tests)
+        run: choco install googlechrome --no-progress -y --ignore-checksums
+
+      - name: Install Dependencies
+        run: mvn clean install
+        
+      - name: Run tests
+        run: mvn test
