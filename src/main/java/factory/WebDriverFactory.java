@@ -17,8 +17,9 @@ public class WebDriverFactory {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
+        options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--incognito");
-        options.setHeadless(false);
+        options.addArguments("--no-sandbox");
 
         WebDriver driver = new ChromeDriver(options);
         Dimension dimensions = new Dimension(1920,1080);
