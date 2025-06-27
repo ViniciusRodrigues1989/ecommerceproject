@@ -49,7 +49,16 @@ public class LoginStepsTest extends BaseTest {
         loginPage = new LoginPage(driver);
 
         loginPage.load(getStoreFrontCommerceUrl());
-        loginPage.preencheCredenciais(getEmptyUsername(), getInvalidPassword());
+        loginPage.preencheCredenciais(getEmptyUsername(), getEmptyPassword());
+    }
+
+    @Given("Acesso a homepage do commerce com usuario valido e senha em branco")
+    public void Acesso_a_homepage_do_commerce_com_usuario_valido_e_senha_em_branco() {
+        driver = WebDriverFactory.createDriver();
+        loginPage = new LoginPage(driver);
+
+        loginPage.load(getStoreFrontCommerceUrl());
+        loginPage.preencheCredenciais(getValidUsername(), getEmptyPassword());
     }
 
     @When("Clico em login")
@@ -88,6 +97,14 @@ public class LoginStepsTest extends BaseTest {
         homePage = new HomePage(driver);
 
         loginPage.validaUsuarioVazio(REQUIRED_USERNAME_TEXT);
+        driver.quit();
+    }
+
+    @Then("Mensagem senha obrigatorio devera sera exibida")
+    public void Valido_Mensagem_Senha_Obrigatoria() {
+        homePage = new HomePage(driver);
+
+        loginPage.validaSenhaVazia(REQUIRED_PASSWORD_TEXT);
         driver.quit();
     }
 }

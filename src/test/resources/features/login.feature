@@ -20,3 +20,8 @@ Feature: Teste de Login
     Given Acesso a homepage do commerce com usuario vazio e senha em branco
     When Clico em login
     Then Mensagem usuario obrigatorio sera exibida
+
+  Scenario: Tentativa login sem senha preenchida
+    Given Acesso a homepage do commerce com usuario valido e senha em branco
+    When Clico em login
+    Then Mensagem senha obrigatorio devera sera exibida
