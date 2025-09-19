@@ -1,6 +1,6 @@
 # Automação de Testes - [Ecommerce Project]
 
-Este repositório contém os testes automatizados para o projeto [Ecommerce Project], utilizando as [Ferramentas de Automação: Selenium, Cucumber, JUni]. O objetivo deste projeto é fornecer uma suíte de testes automatizados para garantir a qualidade e estabilidade das funcionalidades do sistema dddd.
+Este repositório contém os testes automatizados para o projeto [Ecommerce Project], utilizando as [Ferramentas de Automação: Selenium, Cucumber, JUni]. O objetivo deste projeto é fornecer uma suíte de testes automatizados para garantir a qualidade e estabilidade das funcionalidades do sistema.
 
 ## Estrutura do Repositório
 
